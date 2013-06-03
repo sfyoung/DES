@@ -1,0 +1,44 @@
+'''
+@author: S.F.Young
+Created on 2013-5-28
+Version: 1.0
+License: Public Domain - free to do as you wish
+Environment: python3
+
+I want write some python3 program for my cryptological schoolwork.
+This program is write for this purpose. It's about DES cry-
+ptological algorithm. So if you know something about DES,
+you can understand it very easily. Have fun!
+references:
+1.http://www.360doc.com/content/10/0317/23/1011681_19192679.shtml
+2.book: Cryptography Theory and Practice, 3rd Edition.
+3.python source code:pyDes-2.0.1
+XUbuntu: 12.04.2 LTS, Kenrel: 3.2.0-24-generic,Python: Python 3.2.3
+pad:PKCS #5
+mode: ECB
+
+How To use:
+At first, please remember the precondition: padding mode is PKCS #5, encrypt model is ECB, and run this module on python3.
+class Des
+init method:des.Des(message, key, crypt)
+message:    the source text that you want to encrypt or decrypt
+key:        your key that you want to use to encrypt or decrypt. You have to ensure it is 8 bits long.
+crypt:      'en' to encrypt or 'de' to decrypt, default is 'en'
+
+main method: des.Des.crpyt()
+This method can do encrypt or decrypt(by crypt = 'en' or crypt = 'de')
+
+eg:
+from des import *
+message = b'hello, world'
+key = b'ILoveYou'
+c = Des(message, key, 'en').crypt()
+print('c = %s' %c)
+#You will see
+#c = b'\xaa\xc6xz^\xf8\xc2<\xa1\xd4\xefU\x1f\x1c<$'
+p = Des(c, key, 'de').crypt()
+print('p = %s' %p)
+#You will see
+#p = b'hello, world'
+
+'''
